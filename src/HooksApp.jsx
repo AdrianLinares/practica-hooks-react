@@ -1,11 +1,11 @@
-import { FormComponent } from "./components/FormComponent";
+import { UserComponent } from "./components/UserComponent";
 
 export const HooksApp = () => {
     return (
         <>
             <h1>Hooks App</h1>
             <hr />
-            <FormComponent></FormComponent>
+            <UserComponent></UserComponent>
         </>
     );
 };

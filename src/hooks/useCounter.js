@@ -1,22 +1,27 @@
 import { useState } from "react";
 
-export const useCounter = (valorInicial = 0) => {
-    const [contador, setContador] = useState(valorInicial);
+export const useCounter = (initialValue = 0) => {
+    const [counter, setCounter] = useState(initialValue);
 
-    const incrementar = (valor = 1) => {
-        setContador(contador + valor);
+    const increment = (value = 1) => {
+        setCounter(counter + value);
     };
-    const decrementar = (valor = 1) => {
-        setContador(contador - valor);
+    const decrement = (value = 1, negativo = true) => {
+        ///quitar el true del negativo si no se quieren tener valores menores que cero
+        if (!negativo && counter - value < 0) {
+            setCounter(0);
+            return;
+        }
+        setCounter(counter - value);
     };
-    const resetear = () => {
-        setContador(0);
+    const reset = () => {
+        setCounter(0);
     };
 
     return {
-        contador,
-        incrementar,
-        decrementar,
-        resetear,
+        counter,
+        increment,
+        decrement,
+        reset,
     };
 };
